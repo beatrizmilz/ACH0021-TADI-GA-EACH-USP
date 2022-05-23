@@ -1,0 +1,115 @@
+---
+title: "TADI - Aula prática com programação em R"
+format: html
+editor: visual
+---
+
+
+
+```{r echo=TRUE, message=FALSE}
+library(fs)
+library(httr)
+library(readxl)
+library(tidyverse)
+library(janitor)
+library(knitr)
+```
+
+
+## Obter a base de dados
+
+```{r}
+#| eval: false
+#| 
+# Criar a pasta caso ela não exista
+dir_create("dados_brutos")
+
+# Informar o link para baixar a tabela
+url <- "https://app.anm.gov.br/SIGBM/Publico/ClassificacaoNacionalDaBarragem/ExportarExcel"
+
+# baixar a tabela
+resp <-
+  POST(url, write_disk(paste0(
+    "dados_brutos/sigbm_", Sys.Date(), ".xlsx"
+  ), overwrite = TRUE))
+```
+
+
+## Carregar a base de dados
+
+```{r}
+#| message: false
+# buscar o caminho
+arquivo <- dir_ls("dados_brutos/")
+# ler o arquivo
+sigbm <- read_xlsx(arquivo[1], skip = 4) |> 
+  # limpar nomes
+  clean_names()
+
+glimpse(sigbm)
+```
+
+
+## Conceitos vistos em sala
+
+### Tabela de frequência
+
+- Frequências com categorias:
+
+```{r}
+  sigbm |> count(uf) 
+```
+
+```{r}
+sigbm |> count(dano_potencial_associado)
+```
+- Frequências numéricas:
+
+```{r}
+# Valor mínimo
+valor_minimo <- min(sigbm$altura_atual_m)
+# Valor máximo
+valor_maximo <- max(sigbm$altura_atual_m)
+# sequencia
+quebras <- seq(valor_minimo, valor_maximo + 10, by = 10)
+
+sigbm_com_quebra_de_altura <- sigbm |> 
+  mutate(
+    altura_cat = cut(altura_atual_m, quebras, include.lowest = TRUE)
+  ) 
+
+sigbm_com_quebra_de_altura |> 
+  count(altura_cat)
+```
+
+
+```{r}
+sigbm |> 
+  summarise(min = min(altura_atual_m),
+            max = min(altura_atual_m),
+            media = mean(altura_atual_m),
+            desvio_padrao = sd(altura_atual_m))
+```
+
+
+média
+mediana
+
+
+## Gráficos
+
+```{r}
+sigbm |> 
+  ggplot() +
+  aes(x = altura_atual_m) +
+  geom_histogram(bins = 20)
+```
+
+```{r}
+sigbm_com_quebra_de_altura |> 
+  count(altura_cat) |> 
+  ggplot() +
+  aes(x = altura_cat, y = n) +
+  geom_col()
+```
+
