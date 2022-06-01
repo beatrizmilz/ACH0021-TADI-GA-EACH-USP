@@ -37,7 +37,7 @@ lang: pt
 
 ## Vamos aos gráficos e tabelas! {.center .middle}
 
-## M-G2
+## <!--  M-G2 -->
 
 ![](img/m-g2-1.png){fig-align="center"}
 
@@ -46,11 +46,11 @@ lang: pt
 -   O gráfico precisa ser claro para quem está lendo.
     O que a curva vermelha significa?
 
-## M-G10 (exemplo legal!)
+## <!--  M-G10 --> (exemplo legal!)
 
 ![](img/m-g10-1.png){fig-align="center"}
 
-## M-G3
+## <!--  M-G3 -->
 
 ![](img/m-g3-1.png){fig-align="center"}
 
@@ -58,7 +58,7 @@ lang: pt
 
 -   Importante nomear os eixos!
 
-## M-G3
+## <!--  M-G3 -->
 
 ![](img/m-g3-2.png){fig-align="center"}
 
@@ -67,17 +67,17 @@ lang: pt
 -   É melhor salvar imagens com maior resolução.
     Evite print screen :)
 
-## M-G4
+## <!--  M-G4 -->
 
 ![](img/m-g4-1.png){fig-align="center"}
 
 -   Cuidado com os gráficos de pizza: não é legal usar com muitas categorias, pois pode ser difícil de ler.
 
-## M-G14 (exemplo legal!)
+## <!--  M-G14 --> (exemplo legal!)
 
 ![](img/m-g14-1.png){fig-align="center"}
 
-## M-G5
+## <!--  M-G5 -->
 
 ![](img/m-g5-1.png){fig-align="center"}
 
@@ -91,7 +91,7 @@ lang: pt
 
     > " Logo após o término da análise desses dados, conclui-se que a população tem ..... "
 
-## M-G5
+## <!--  M-G5 -->
 
 > Tabela 1: Dados e relações sobre o entendimento dos participantes do conceito de coleta seletiva
 
@@ -101,7 +101,7 @@ lang: pt
 
 -   Pensar: realmente precisamos de 9 casas decimais?
 
-## M-G6
+## <!--  M-G6 -->
 
 ![](img/m-g6-1.png){fig-align="center"}
 
@@ -109,17 +109,17 @@ lang: pt
 
 -   Não dá pra saber qual categoria cada "fatia" representa.
 
-## M-G10 (exemplo legal!)
+## <!--  M-G10 --> (exemplo legal!)
 
 ![](img/m-g10-2.png){fig-align="center"}
 
-## M-G7
+## <!--  M-G7 -->
 
 ![](img/m-g7-1.png){fig-align="center"}
 
 -   Cuidado com a escolha de cores.
 
-## M-G7
+## <!--  M-G7 -->
 
 ![](img/m-g7-3.jpg){fig-align="center"}
 
@@ -127,17 +127,17 @@ lang: pt
 
 -   Dá pra entender o que cada categoria representa?
 
-## M-G7
+## <!--  M-G7 -->
 
 ![](img/m-g7-4.jpg){fig-align="center"}
 
 -   Está fazendo contagem baseado em combinações. Lasanha aparece em várias categorias. Seria melhor ver quantas vezes lasanha aparece, e não a combinação de lasanha com outras comidas.
 
-## M-G13 (exemplo legal!)
+## <!--  M-G13 --> (exemplo legal!)
 
 ![](img/m-g13-1.png){fig-align="center"}
 
-## M-G8
+## <!--  M-G8 -->
 
 ![](img/m-g8-1.png){fig-align="center"}
 
@@ -145,13 +145,13 @@ lang: pt
 
 -   Logo após o gráfico, o texto aponta uma média diferente do que foi apresentado no gráfico.
 
-## M-G9
+## <!--  M-G9 -->
 
 ![](img/m-g9-1.png){fig-align="center"}
 
 -   A ordem das barras faz sentido? Seria melhor deixar em ordem crescente.
 
-## M-G12
+## <!--  M-G12 -->
 
 ![](img/m-g12-1.png){fig-align="center"}
 
