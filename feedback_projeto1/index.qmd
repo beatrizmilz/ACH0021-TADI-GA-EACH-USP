@@ -136,7 +136,7 @@ lang: pt
 
 - Nesse trabalho: pensar em manter um padrão de cores.
 
-## HALL DA FAMA! {.center .middle}
+## Gráficos legais! {.center .middle}
 
 ## M-G10
 ![](img/m-g10-1.png){fig-align="center"}
@@ -151,7 +151,7 @@ lang: pt
 ![](img/m-g13-1.png){fig-align="center"}
 
 
-## Vamos conversar de forma crítica os gráficos feitos pela Bia também?  {.center .middle}
+## Vamos conversar de forma crítica sobre os gráficos feitos pela Bia também?  {.center .middle}
 
 ## Gráfico da tese (em andamento!)
 ![](img/tese-bea.png){fig-align="center"}
