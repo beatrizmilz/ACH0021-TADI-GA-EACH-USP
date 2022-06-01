@@ -14,154 +14,174 @@ editor: visual
 lang: pt
 ---
 
+## Primeiro: Parabéns! {.center .middle}
+
 
 ## Dicas gerais para o relatório
 
-- Escreva uma introdução sobre o assunto. Porque o tema é importante? O que é bom que o público que está lendo saiba antes de ler as suas análises?
+-   Escreva uma introdução sobre o assunto.
+    Porque o tema é importante?
+    O que é bom que o público que está lendo saiba antes de ler as suas análises?
 
-- Escreva um objetivo claro para a análise. Isso deve guiar o que é feito no trabalho.
+-   Escreva um objetivo claro para a análise.
+    Isso deve guiar o que é feito no trabalho.
 
-- Como você fez, e com quais ferramentas: isso fica na metodologia! Alguns grupos colocaram na introdução ou nos resultados.
+-   Como você fez, e com quais ferramentas: isso fica na metodologia!
+    Alguns grupos colocaram na introdução ou nos resultados.
 
+-   Cuidado com as generalizações:
 
-- Cuidado com as generalizações: 
+    -   
 
-  - > "Após os resultados e discussões apresentados, podemos concluir ...... nos universitários da EACH-USP, com os mesmos .....
+        > "Após os resultados e discussões apresentados, podemos concluir ...... nos universitários da EACH-USP, com os mesmos .....
 
-
-
-
-## Vamos aos gráficos! {.center .middle}
+## Vamos aos gráficos e tabelas! {.center .middle}
 
 ## M-G2
 
 ![](img/m-g2-1.png){fig-align="center"}
 
-- Importante nomear os eixos!
+-   Importante nomear os eixos!
 
-- O gráfico precisa ser claro para quem está lendo. O que a curva vermelha significa? 
+-   O gráfico precisa ser claro para quem está lendo.
+    O que a curva vermelha significa?
 
- 
+## M-G10 (exemplo legal!)
+
+![](img/m-g10-1.png){fig-align="center"}
 
 ## M-G3
 
 ![](img/m-g3-1.png){fig-align="center"}
 
-- Cuidado com as cores...
+-   Cuidado com as cores...
 
-- Importante nomear os eixos!
+-   Importante nomear os eixos!
 
 ## M-G3
 
 ![](img/m-g3-2.png){fig-align="center"}
 
-- Todas as imagens e tabelas que forem adicionadas no trabalho devem ser citadas no texto.
+-   Todas as imagens e tabelas que forem adicionadas no trabalho devem ser citadas no texto.
 
-- É melhor salvar imagens com maior resolução. Evite print screen :)
+-   É melhor salvar imagens com maior resolução.
+    Evite print screen :)
 
 ## M-G4
 
 ![](img/m-g4-1.png){fig-align="center"}
 
-- Cuidado com os gráficos de pizza: não é legal usar com muitas categorias, pois pode ser difícil de ler.
+-   Cuidado com os gráficos de pizza: não é legal usar com muitas categorias, pois pode ser difícil de ler.
+
+## M-G14 (exemplo legal!)
+
+![](img/m-g14-1.png){fig-align="center"}
 
 ## M-G5
 
 ![](img/m-g5-1.png){fig-align="center"}
 
- 
-- Quando elaborar e aplicar o questionário, pense na população-alvo da pesquisa. Isso não foi descrito no relatório.
+-   Quando elaborar e aplicar o questionário, pense na população-alvo da pesquisa.
+    Isso não foi descrito no relatório.
 
-- Muuuuuito cuidado no texto. A amostra obtida está longe de representar a população brasileira, e a população-alvo não foi definida.
+-   Muuuuuito cuidado no texto.
+    A amostra obtida está longe de representar a população brasileira, e a população-alvo não foi definida.
 
-- >" Logo após o término da análise desses dados, conclui-se que a população tem ..... "
+-   
+
+    > " Logo após o término da análise desses dados, conclui-se que a população tem ..... "
 
 ## M-G5
 
 > Tabela 1: Dados e relações sobre o entendimento dos participantes do conceito de coleta seletiva
- 
+
 ![](img/m-g5-2.png){fig-align="center"}
 
-- Isso faz sentido?
+-   Isso faz sentido?
 
-- Pensar: realmente precisamos de 9 casas decimais?
+-   Pensar: realmente precisamos de 9 casas decimais?
 
 ## M-G6
 
 ![](img/m-g6-1.png){fig-align="center"}
 
-- Gráfico de pizza com muitas categorias.
+-   Gráfico de pizza com muitas categorias.
 
-- Não dá pra saber qual categoria cada "fatia" representa. 
+-   Não dá pra saber qual categoria cada "fatia" representa.
+
+## M-G10 (exemplo legal!)
+
+![](img/m-g10-2.png){fig-align="center"}
 
 ## M-G7
 
 ![](img/m-g7-1.png){fig-align="center"}
 
-- Cuidado com a escolha de cores. 
-
+-   Cuidado com a escolha de cores.
 
 ## M-G7
 
-![](img/m-g7-2.png){fig-align="center"}
+![](img/m-g7-3.jpg){fig-align="center"}
 
-- Pelo primeiro gráfico entendemos que: TODOS PREFEREM!
+-   Pelo primeiro gráfico entendemos que: TODOS PREFEREM!
 
-- Dá pra entender o que cada categoria representa?
+-   Dá pra entender o que cada categoria representa?
 
-- No segundo gráfico, está fazendo contagem baseado em combinações. Lasanha aparece em várias categorias. Seria melhor ver quantas vezes lasanha aparece, e não a combinação de lasanha com outras comidas.
+## M-G7
 
+![](img/m-g7-4.jpg){fig-align="center"}
+
+-   Está fazendo contagem baseado em combinações. Lasanha aparece em várias categorias. Seria melhor ver quantas vezes lasanha aparece, e não a combinação de lasanha com outras comidas.
+
+## M-G13 (exemplo legal!)
+
+![](img/m-g13-1.png){fig-align="center"}
 
 ## M-G8
 
 ![](img/m-g8-1.png){fig-align="center"}
 
-- O gráfico ficou ótimo!
+-   O gráfico ficou ótimo!
 
-- Logo após o gráfico, o texto aponta uma média diferente do que foi apresentado no gráfico. 
-
-
+-   Logo após o gráfico, o texto aponta uma média diferente do que foi apresentado no gráfico.
 
 ## M-G9
 
 ![](img/m-g9-1.png){fig-align="center"}
 
-- A ordem das barras faz sentido? Seria melhor deixar em ordem crescente.
+-   A ordem das barras faz sentido? Seria melhor deixar em ordem crescente.
 
 ## M-G12
 
 ![](img/m-g12-1.png){fig-align="center"}
 
-- A variável é gênero. Qualitativa. Pensar: faz sentido calcular a média dessa variável?
+-   A variável é gênero.
+    Qualitativa.
+    Pensar: faz sentido calcular a média dessa variável?
 
-- Nesse trabalho: pensar em manter um padrão de cores.
+-   Nesse trabalho: pensar em manter um padrão de cores.
 
-## Gráficos legais! {.center .middle}
-
-## M-G10
-![](img/m-g10-1.png){fig-align="center"}
-
-## M-G10
-![](img/m-g10-2.png){fig-align="center"}
-
-## M-G14
-![](img/m-g14-1.png){fig-align="center"}
-
-## M-G13
-![](img/m-g13-1.png){fig-align="center"}
+## Vamos conversar de forma crítica sobre os gráficos feitos pela Bia também? {.center .middle}
 
 
-## Vamos conversar de forma crítica sobre os gráficos feitos pela Bia também?  {.center .middle}
+## Gráfico do mestrado
+
+![](img/boxplot_sonda.png){fig-align="center"}
+
+Gráfico do artigo: <http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402>
+
 
 ## Gráfico da tese (em andamento!)
+
 ![](img/tese-bea.png){fig-align="center"}
 
-
 ## Lucro médio de diretores segundo o IMDB
+
+As vezes o objetivo não é escrever um texto científico.. aí eu capricho mais no visual!
+
 ![](https://i.ibb.co/GQ2Ztmw/unnamed-chunk-12-1.png){fig-align="center"}
 
 Disponível em: <https://beatrizmilz.com/blog/2020-12-03-dicas-serie/02-graficos/>
-
 
 ## Periódicos onde foram publicados trabalhos sobre Water Governance
 
@@ -177,4 +197,5 @@ Disponível em: <https://beatrizmilz.com/blog/2020-07-27-criando-mapas-com-os-pa
 
 ## Fim!
 
-Lembrem-se: as dicas são para que vocês possam exercitar um olhar mais crítico do conteúdo que vocês produzem. Espero que seja útil para trabalhos futuros :)
+Lembrem-se: as dicas são para que vocês possam exercitar um olhar mais crítico do conteúdo que vocês produzem.
+Espero que seja útil para trabalhos futuros :)
