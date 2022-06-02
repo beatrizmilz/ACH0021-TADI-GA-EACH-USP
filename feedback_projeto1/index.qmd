@@ -16,7 +16,6 @@ lang: pt
 
 ## Primeiro: Parabéns! {.center .middle}
 
-
 ## Dicas gerais para o relatório
 
 -   Escreva uma introdução sobre o assunto.
@@ -163,13 +162,11 @@ lang: pt
 
 ## Vamos conversar de forma crítica sobre os gráficos feitos pela Bia também? {.center .middle}
 
-
 ## Gráfico do mestrado
 
 ![](img/boxplot_sonda.png){fig-align="center"}
 
 Gráfico do artigo: <http://www.ambi-agua.net/seer/index.php/ambi-agua/article/view/2402>
-
 
 ## Gráfico da tese (em andamento!)
 
@@ -177,7 +174,8 @@ Gráfico do artigo: <http://www.ambi-agua.net/seer/index.php/ambi-agua/article/v
 
 ## Lucro médio de diretores segundo o IMDB
 
-As vezes o objetivo não é escrever um texto científico.. aí eu capricho mais no visual!
+As vezes o objetivo não é escrever um texto científico..
+aí eu capricho mais no visual!
 
 ![](https://i.ibb.co/GQ2Ztmw/unnamed-chunk-12-1.png){fig-align="center"}
 
@@ -199,3 +197,29 @@ Disponível em: <https://beatrizmilz.com/blog/2020-07-27-criando-mapas-com-os-pa
 
 Lembrem-se: as dicas são para que vocês possam exercitar um olhar mais crítico do conteúdo que vocês produzem.
 Espero que seja útil para trabalhos futuros :)
+
+## Edit: Links citados nas aulas:
+
+-   Paleta de cores: viridis
+
+    -    <https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html>
+
+    -   <https://waldyrious.net/viridis-palette-generator/>
+
+-   From data to vis: ajuda a escolher o tipo de gráfico - <https://www.data-to-viz.com/>
+
+## Livro que a impressão saiu em preto e branco:
+
+::: columns
+::: {.column width="50%"}
+Versão original:
+
+![](img/r4dsen.png){fig-align="center" width="307"} <https://r4ds.had.co.nz/data-visualisation.html>
+:::
+
+::: {.column width="50%"}
+Versão em português:
+
+![](img/r4dspt.png){fig-align="center" width="247"}
+:::
+:::
