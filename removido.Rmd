@@ -1,0 +1,38 @@
+---
+title: "Untitled"
+author: "Beatriz"
+date: '2022-07-03'
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+E a pluviometria?
+
+```{r}
+#| column: screen
+pluviometria_mensal <- mananciais |>
+  mutate(mes_ano = floor_date(data, "month"),
+         dia = day(data)) |>
+  group_by(mes_ano, sistema) |>
+  filter(dia == max(dia)) |>
+  ungroup()
+
+
+pluviometria_mensal |>
+  filter(ano %in% c(2021, 2022), mes_ano !=
+           "2022-07-01") |>
+  ggplot() +
+  geom_line(aes(x = mes_ano, y = pluviometria_mensal),
+            size = 1,
+            color =  "#4285f4") +
+  geom_line(aes(x = mes_ano, y = pluviometria_hist),
+            linetype = 2 ,
+            color = "darkgray") +
+  facet_wrap(vars(sistema)) +
+  theme_minimal() +
+  scale_x_date(date_labels = "%b/%Y") + 
+  labs(x = "Mês/Ano", y = "Pluviometria mensal")
+```

@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.515">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>TADI - Aula prática com programação em R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+
+<script src="index_files/libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<link href="index_files/libs/datatables-css-0.0.0/datatables-crosstalk.css" rel="stylesheet">
+<script src="index_files/libs/datatables-binding-0.23/datatables.js"></script>
+<script src="index_files/libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<link href="index_files/libs/dt-core-1.11.3/css/jquery.dataTables.min.css" rel="stylesheet">
+<link href="index_files/libs/dt-core-1.11.3/css/jquery.dataTables.extra.css" rel="stylesheet">
+<script src="index_files/libs/dt-core-1.11.3/js/jquery.dataTables.min.js"></script>
+<link href="index_files/libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="index_files/libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">TADI - Aula prática com programação em R</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<section id="objetivo" class="level2">
+<h2 class="anchored" data-anchor-id="objetivo">Objetivo</h2>
+<ul>
+<li><p>Explorar os dados sobre os mananciais utilizados para abastecimento público na Região Metropolitana de São Paulo.</p></li>
+<li><p>Perguntas:</p>
+<ul>
+<li><p>Qual é o sistema mais importante para o abastecimento público atualmente?</p></li>
+<li><p>Atualmente, qual é o sistema com volume armazenado mais baixo? e mais alto?</p></li>
+<li><p>Considerando os gráficos gerados, você diria que o Cantareira se recuperou da crise hídrica de 2014-2015?</p></li>
+<li><p>A pluviometria nos últimos meses tem sido maior ou menor do que a média histórica?</p></li>
+</ul></li>
+</ul>
+<p>Fonte dos dados:</p>
+<ul>
+<li><a href="https://beatrizmilz.github.io/mananciais/" class="uri">https://beatrizmilz.github.io/mananciais/</a><br>
+</li>
+<li><a href="https://mananciais.sabesp.com.br/Situacao" class="uri">https://mananciais.sabesp.com.br/Situacao</a></li>
+</ul>
+</section>
+<section id="carregar-pacotes" class="level2">
+<h2 class="anchored" data-anchor-id="carregar-pacotes">Carregar pacotes</h2>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(knitr)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lubridate)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(janitor)</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="carregar-a-base-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="carregar-a-base-de-dados">Carregar a base de dados</h2>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ler o arquivo</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mananciais <span class="ot">&lt;-</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">read_delim</span>(</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">"https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">delim =</span> <span class="st">";"</span>,</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">escape_double =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">col_types =</span> <span class="fu">cols</span>(<span class="at">data =</span> <span class="fu">col_date</span>(<span class="at">format =</span> <span class="st">"%Y-%m-%d"</span>)),</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">decimal_mark =</span> <span class="st">","</span>, <span class="at">grouping_mark =</span> <span class="st">"."</span>),</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">trim_ws =</span> <span class="cn">TRUE</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="conhecendo-a-base-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="conhecendo-a-base-de-dados">Conhecendo a base de dados</h2>
+<p>Quais colunas estão disponíveis?</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(mananciais)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 50,934
+Columns: 8
+$ data                &lt;date&gt; 2022-07-03, 2022-07-03, 2022-07-03, 2022-07-03, 2…
+$ sistema             &lt;chr&gt; "Cantareira", "Alto Tietê", "Guarapiranga", "Cotia…
+$ volume_porcentagem  &lt;dbl&gt; 39.4, 59.6, 74.7, 81.4, 97.5, 44.3, 87.8, 39.5, 59…
+$ volume_variacao     &lt;dbl&gt; -0.1, -0.1, -0.2, -0.2, -0.1, 0.0, -0.2, -0.1, -0.…
+$ volume_operacional  &lt;dbl&gt; 386.92569, 333.68727, 127.94641, 13.42752, 109.342…
+$ pluviometria_dia    &lt;dbl&gt; 0.0, 0.2, 0.0, 0.0, 0.0, 0.4, 0.0, 0.0, 0.1, 0.2, …
+$ pluviometria_mensal &lt;dbl&gt; 0.0, 0.4, 0.2, 0.4, 0.0, 0.8, 0.2, 0.0, 0.2, 0.2, …
+$ pluviometria_hist   &lt;dbl&gt; 46.5, 46.9, 41.5, 51.3, 54.2, 91.3, 77.7, 46.5, 46…</code></pre>
+</div>
+</div>
+<section id="sumário-da-base-de-dados" class="level3">
+<h3 class="anchored" data-anchor-id="sumário-da-base-de-dados">Sumário da base de dados</h3>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>skimr<span class="sc">::</span><span class="fu">skim</span>(mananciais)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<caption>Data summary</caption>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Name</td>
+<td style="text-align: left;">mananciais</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Number of rows</td>
+<td style="text-align: left;">50934</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Number of columns</td>
+<td style="text-align: left;">8</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">_______________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Column type frequency:</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">character</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Date</td>
+<td style="text-align: left;">1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">numeric</td>
+<td style="text-align: left;">6</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">________________________</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Group variables</td>
+<td style="text-align: left;">None</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: character</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 19%">
+<col style="width: 13%">
+<col style="width: 19%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 8%">
+<col style="width: 12%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">empty</th>
+<th style="text-align: right;">n_unique</th>
+<th style="text-align: right;">whitespace</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">sistema</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">12</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">7</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: Date</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 17%">
+<col style="width: 12%">
+<col style="width: 17%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 13%">
+<col style="width: 11%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: left;">min</th>
+<th style="text-align: left;">max</th>
+<th style="text-align: left;">median</th>
+<th style="text-align: right;">n_unique</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">data</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">2000-01-01</td>
+<td style="text-align: left;">2022-07-03</td>
+<td style="text-align: left;">2011-08-15</td>
+<td style="text-align: right;">8220</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Variable type: numeric</strong></p>
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 20%">
+<col style="width: 10%">
+<col style="width: 14%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 7%">
+<col style="width: 6%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">skim_variable</th>
+<th style="text-align: right;">n_missing</th>
+<th style="text-align: right;">complete_rate</th>
+<th style="text-align: right;">mean</th>
+<th style="text-align: right;">sd</th>
+<th style="text-align: right;">p0</th>
+<th style="text-align: right;">p25</th>
+<th style="text-align: right;">p50</th>
+<th style="text-align: right;">p75</th>
+<th style="text-align: right;">p100</th>
+<th style="text-align: left;">hist</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">volume_porcentagem</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">66.57</td>
+<td style="text-align: right;">25.73</td>
+<td style="text-align: right;">-24.30</td>
+<td style="text-align: right;">47.70</td>
+<td style="text-align: right;">69.20</td>
+<td style="text-align: right;">88.77</td>
+<td style="text-align: right;">110.50</td>
+<td style="text-align: left;">▁▂▇▇▇</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">volume_variacao</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.59</td>
+<td style="text-align: right;">-6.40</td>
+<td style="text-align: right;">-0.20</td>
+<td style="text-align: right;">-0.10</td>
+<td style="text-align: right;">0.10</td>
+<td style="text-align: right;">16.60</td>
+<td style="text-align: left;">▁▇▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">volume_operacional</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">151.27</td>
+<td style="text-align: right;">185.52</td>
+<td style="text-align: right;">-238.84</td>
+<td style="text-align: right;">13.96</td>
+<td style="text-align: right;">97.02</td>
+<td style="text-align: right;">200.70</td>
+<td style="text-align: right;">987.05</td>
+<td style="text-align: left;">▁▇▂▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pluviometria_dia</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">4.05</td>
+<td style="text-align: right;">9.86</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">0.20</td>
+<td style="text-align: right;">2.80</td>
+<td style="text-align: right;">222.50</td>
+<td style="text-align: left;">▇▁▁▁▁</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">pluviometria_mensal</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">64.22</td>
+<td style="text-align: right;">71.04</td>
+<td style="text-align: right;">0.00</td>
+<td style="text-align: right;">10.00</td>
+<td style="text-align: right;">41.30</td>
+<td style="text-align: right;">94.40</td>
+<td style="text-align: right;">557.60</td>
+<td style="text-align: left;">▇▂▁▁▁</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pluviometria_hist</td>
+<td style="text-align: right;">245</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">132.35</td>
+<td style="text-align: right;">68.39</td>
+<td style="text-align: right;">23.50</td>
+<td style="text-align: right;">75.00</td>
+<td style="text-align: right;">123.40</td>
+<td style="text-align: right;">189.10</td>
+<td style="text-align: right;">298.90</td>
+<td style="text-align: left;">▇▇▅▅▂</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+</section>
+<section id="alterando-a-base-de-dados" class="level2">
+<h2 class="anchored" data-anchor-id="alterando-a-base-de-dados">Alterando a base de dados</h2>
+<p>Criar a coluna ano, mes_ano, e ordenar a coluna de sistema:</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="ot">&lt;-</span> mananciais <span class="sc">|&gt;</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ano =</span> <span class="fu">year</span>(data),</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">mes_ano =</span> <span class="fu">floor_date</span>(data, <span class="st">"month"</span>),</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sistema =</span> <span class="fu">fct_relevel</span>(</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>      sistema,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">levels =</span> <span class="fu">c</span>(</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Cantareira"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Alto Tietê"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Guarapiranga"</span>,</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Rio Grande"</span>  ,</span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="st">"São Lourenço"</span> ,</span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Cotia"</span> ,</span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        <span class="st">"Rio Claro"</span></span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>      )</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="explorando-os-dados" class="level2">
+<h2 class="anchored" data-anchor-id="explorando-os-dados">Explorando os dados:</h2>
+<p>Quais são os sistemas existentes na base? Quantas observações temos para cada Sistema?</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(sistema) <span class="sc">|&gt;</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">sistema</th>
+<th style="text-align: right;">n</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cantareira</td>
+<td style="text-align: right;">8220</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alto Tietê</td>
+<td style="text-align: right;">8220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guarapiranga</td>
+<td style="text-align: right;">8220</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rio Grande</td>
+<td style="text-align: right;">8220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">São Lourenço</td>
+<td style="text-align: right;">1614</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cotia</td>
+<td style="text-align: right;">8220</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rio Claro</td>
+<td style="text-align: right;">8220</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Porque o São Lourenço apresenta menos dados?</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sistema) <span class="sc">|&gt;</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(data <span class="sc">==</span> <span class="fu">min</span>(data)) <span class="sc">|&gt;</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sistema, data) <span class="sc">|&gt;</span> </span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">sistema</th>
+<th style="text-align: left;">data</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">São Lourenço</td>
+<td style="text-align: left;">2018-02-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cantareira</td>
+<td style="text-align: left;">2000-01-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alto Tietê</td>
+<td style="text-align: left;">2000-01-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guarapiranga</td>
+<td style="text-align: left;">2000-01-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Cotia</td>
+<td style="text-align: left;">2000-01-01</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rio Grande</td>
+<td style="text-align: left;">2000-01-01</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rio Claro</td>
+<td style="text-align: left;">2000-01-01</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Quais são os sistemas com o maior volume operacional armazenado?</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(data <span class="sc">==</span> <span class="fu">max</span>(data)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(volume_operacional)) <span class="sc">|&gt;</span> </span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sistema, volume_operacional) <span class="sc">|&gt;</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">sistema</th>
+<th style="text-align: right;">volume_operacional</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Cantareira</td>
+<td style="text-align: right;">386.92569</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Alto Tietê</td>
+<td style="text-align: right;">333.68727</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Guarapiranga</td>
+<td style="text-align: right;">127.94641</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Rio Grande</td>
+<td style="text-align: right;">109.34277</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">São Lourenço</td>
+<td style="text-align: right;">77.94666</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cotia</td>
+<td style="text-align: right;">13.42752</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rio Claro</td>
+<td style="text-align: right;">6.05168</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<section id="gráficos" class="level2">
+<h2 class="anchored" data-anchor-id="gráficos">Gráficos!</h2>
+</section>
+<section id="gráficos-de-linhas" class="level2">
+<h2 class="anchored" data-anchor-id="gráficos-de-linhas">Gráficos de linhas</h2>
+<ul>
+<li>Como o volume do sistema Cantareira variou ao longo do tempo?</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sistema <span class="sc">==</span> <span class="st">"Cantareira"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> data, <span class="at">y =</span> volume_porcentagem)) <span class="sc">+</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ano"</span>, <span class="at">y =</span> <span class="st">"Volume (%)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<ul>
+<li>Oficialmente, a crise hídrica aconteceu nos anos de 2014 e 2015:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sistema <span class="sc">==</span> <span class="st">"Cantareira"</span>) <span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> data, <span class="at">y =</span> volume_porcentagem)) <span class="sc">+</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ano"</span>, <span class="at">y =</span> <span class="st">"Volume (%)"</span>) <span class="sc">+</span></span>
+<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  gghighlight<span class="sc">::</span><span class="fu">gghighlight</span>(ano <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">2014</span><span class="sc">:</span><span class="dv">2015</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>  <span class="co"># gghighlight::gghighlight(mes_ano &gt;= "2013-04-01", mes_ano &lt; "2016-01-01")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+</section>
+<section id="exercício-1" class="level2">
+<h2 class="anchored" data-anchor-id="exercício-1">Exercício 1</h2>
+<p>Adapte o código abaixo para criar um gráfico para o sistema Alto Tietê:</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sistema <span class="sc">==</span> <span class="st">"Cantareira"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">x =</span> data, <span class="at">y =</span> volume_porcentagem)) <span class="sc">+</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Ano"</span>, <span class="at">y =</span> <span class="st">"Volume (%)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="criando-uma-tabela-de-resumo" class="level2">
+<h2 class="anchored" data-anchor-id="criando-uma-tabela-de-resumo">Criando uma tabela de resumo!</h2>
+<ul>
+<li>Porcentagem do volume do reservatório: calculando os valores mínimo, máximo, média, variância, desvio padrão.</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(volume_porcentagem),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(volume_porcentagem),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(volume_porcentagem), <span class="dv">1</span>),</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">variancia =</span> <span class="fu">round</span>(<span class="fu">var</span>(volume_porcentagem), <span class="dv">1</span>), </span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">desvio_padrao =</span> <span class="fu">round</span>(<span class="fu">sd</span>(volume_porcentagem), <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: right;">min</th>
+<th style="text-align: right;">max</th>
+<th style="text-align: right;">media</th>
+<th style="text-align: right;">variancia</th>
+<th style="text-align: right;">desvio_padrao</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">-24.3</td>
+<td style="text-align: right;">110.5</td>
+<td style="text-align: right;">66.6</td>
+<td style="text-align: right;">662.1</td>
+<td style="text-align: right;">25.7</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>E para todas as combinações de Sistema e Ano?</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ano, sistema) <span class="sc">|&gt;</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(volume_porcentagem),</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(volume_porcentagem),</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(volume_porcentagem), <span class="dv">1</span>),</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">variancia =</span> <span class="fu">round</span>(<span class="fu">var</span>(volume_porcentagem), <span class="dv">1</span>), </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">desvio_padrao =</span> <span class="fu">round</span>(<span class="fu">sd</span>(volume_porcentagem), <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div id="htmlwidget-4e754f2d08235fec1648" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-4e754f2d08235fec1648">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143"],[2000,2000,2000,2000,2000,2000,2001,2001,2001,2001,2001,2001,2002,2002,2002,2002,2002,2002,2003,2003,2003,2003,2003,2003,2004,2004,2004,2004,2004,2004,2005,2005,2005,2005,2005,2005,2006,2006,2006,2006,2006,2006,2007,2007,2007,2007,2007,2007,2008,2008,2008,2008,2008,2008,2009,2009,2009,2009,2009,2009,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022],["Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro"],[23.5,47.6,19.2,68,14.6,56,14.1,17.6,24.5,72.1,16.7,9.3,24.7,23.6,24.3,69.6,36.9,21,1.6,16.4,18.6,56.1,5.3,25.1,3.4,16.9,21.3,64.8,11.3,53.6,30.7,26.6,48.3,85.7,41.2,87.4,34.5,41.6,51.8,78.9,87.1,61.7,27.8,42.1,32.3,65.7,47.3,23.3,32.1,38.7,39.9,74.7,58.1,30.5,51.1,42.6,47,76.9,76.1,38.5,71.9,58.3,63.9,86.5,61.3,95.6,66.5,49.7,50.6,75.6,47.5,63.7,47.4,32.6,44.3,70.6,47.9,39.8,27.3,41.5,59.2,84,74.7,49.9,-22.6,4.2,31.4,61.8,27.8,25.8,-24.3,10,38.1,68.6,27.9,22,0.7,23.7,71.6,75.8,85.9,62.3,41,43.1,54.4,77.3,75.7,68.4,33.5,45.9,48.5,74.1,14.5,38.4,34.8,37.7,50,59.1,79.8,46.1,41.9,80.4,31.3,52.9,44.3,71,58.8,57.5,43.9,24.3,36.3,44.7,64.1,49.6,35.9,35.6,25,40.4,59.5,85.4,79,41.3,41.1],[68.8,87.1,64.2,100.8,41.8,106.5,41.5,57.5,61.8,98.5,45.4,90.2,62.9,56.9,64.5,99.2,87.5,80.7,50.6,53.8,62.2,102.2,59.8,94.6,37.7,40.9,50.3,96.1,45.7,103.6,57.7,52,82.1,101,102.5,105.6,68,68.4,90.7,102.6,106.5,106.5,51.1,69.5,80.2,101,102.7,98,64.3,61.8,77.7,99.5,98.9,83.4,96.7,69.8,96.6,103.8,106,108,100.5,101.3,95.7,107.8,110.5,107.8,96.4,84.7,93.2,103.8,104.6,107.1,76.7,63.7,90.6,100.2,103.9,103.8,63.9,67.5,92.1,101.9,104.4,106.2,27.2,46.4,79.1,98.6,74.3,106,0.3,23.6,92.1,99.7,86.1,74.1,47.7,47.9,95.5,97.3,105.5,103.1,68,59.7,86.7,96.6,104.4,106,54.3,65.2,91.2,90,79.9,92.7,102.9,58.7,98.1,96.1,108.5,101.7,103.4,107.2,64.4,91.6,89.5,103.6,102.1,104.6,104.1,52.8,62.1,75.3,91.9,80.8,81.6,75.4,45.4,64.1,92.9,105.2,100.4,95.3,56.1],[48.3,66.8,38.2,81.2,26.6,87.6,27.8,36.6,43,85.5,26.5,43.2,45.7,42.7,45.1,86.7,65.6,58,28.5,36.3,41,76.7,34.6,61,21.7,30.8,38.9,83.9,34.3,91.3,47.3,41,73.3,91.5,88.3,100.3,52.6,58.2,71.7,89.4,97,88.6,41.7,58.2,59.1,83.5,81.6,63.9,52.6,50.9,61.8,85.3,84.6,53.4,80.5,52.1,84,91.3,100.5,89.5,90.6,79.2,81.1,94.4,93,101.5,83.4,69.8,71.3,90.3,85.2,93.5,67.5,50.1,72.4,88.2,85.3,84.9,49.8,57.7,79.4,94.4,93.3,95.6,1,25.2,61,84.4,45.6,79,-12.6,17.8,74,89,58.8,53.3,37.3,39.8,81.2,84.8,96.3,85.4,57.8,53.4,72.1,87,94.5,93,43.3,55,68,81.4,43.1,66.4,76.3,49.2,83.9,82,94.4,78.1,85.9,100.5,49.5,71.9,62.5,81.5,80.3,81.5,74.5,40.1,50.6,60.1,80.1,65.5,63.6,48.5,40.4,57.6,82.1,100,91.2,80.8,46.6],[215.7,137.9,178.1,92.9,63.5,181.7,83.9,205.2,117.3,68.4,26,672.4,161.8,90.3,134.9,79.9,247.5,282.1,296.4,154.4,203.4,199.3,382.8,410.6,81.2,51.5,71.1,57,82.2,152.4,55.9,23.2,39.4,8.4,169.7,13,120.9,47,85.9,27.5,24.3,229.8,54.5,84.2,210.2,87.1,318.8,572.5,82.4,46.7,121.2,61.4,93.1,253.3,95.3,28,122.7,27,17.6,270.7,88.9,174.3,81.5,18,204.4,3.5,90,140,189,48.9,358.8,132.8,85.4,80.4,151.1,60.5,205.3,455.3,113.3,43.3,70.2,10.1,64.1,110.6,217.6,174.7,217.1,117.1,145.7,646.7,26.5,15.4,175.5,60.6,196.5,186.7,141.9,31.7,41,42.4,24.5,146.1,78.3,17.6,97.8,25.8,71.1,140.7,48.9,33.2,133,14.5,387.4,412.3,430.4,49.1,184.9,115.5,75.1,399.8,362.1,27.6,110.8,159.8,197.2,57.9,214.8,244.6,414.3,85,76.4,88.1,53.7,56.3,210.5,59.1,31.6,34.1,51.1,11.9,25.6,169.6,9.9],[14.7,11.7,13.3,9.6,8,13.5,9.2,14.3,10.8,8.3,5.1,25.9,12.7,9.5,11.6,8.9,15.7,16.8,17.2,12.4,14.3,14.1,19.6,20.3,9,7.2,8.4,7.5,9.1,12.3,7.5,4.8,6.3,2.9,13,3.6,11,6.9,9.3,5.2,4.9,15.2,7.4,9.2,14.5,9.3,17.9,23.9,9.1,6.8,11,7.8,9.7,15.9,9.8,5.3,11.1,5.2,4.2,16.5,9.4,13.2,9,4.2,14.3,1.9,9.5,11.8,13.7,7,18.9,11.5,9.2,9,12.3,7.8,14.3,21.3,10.6,6.6,8.4,3.2,8,10.5,14.8,13.2,14.7,10.8,12.1,25.4,5.2,3.9,13.2,7.8,14,13.7,11.9,5.6,6.4,6.5,5,12.1,8.8,4.2,9.9,5.1,8.4,11.9,7,5.8,11.5,3.8,19.7,20.3,20.7,7,13.6,10.7,8.7,20,19,5.2,10.5,12.6,14,7.6,14.7,15.6,20.4,9.2,8.7,9.4,7.3,7.5,14.5,7.7,5.6,5.8,7.1,3.5,5.1,13,3.1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ano<\/th>\n      <th>sistema<\/th>\n      <th>min<\/th>\n      <th>max<\/th>\n      <th>media<\/th>\n      <th>variancia<\/th>\n      <th>desvio_padrao<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="exercício-2" class="level2">
+<h2 class="anchored" data-anchor-id="exercício-2">Exercício 2</h2>
+<p>Adapte o código a seguir para criar uma tabela de resumo para a variável de Volume Operacional:</p>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(ano, sistema) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">min =</span> <span class="fu">min</span>(volume_porcentagem),</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">max =</span> <span class="fu">max</span>(volume_porcentagem),</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">media =</span> <span class="fu">round</span>(<span class="fu">mean</span>(volume_porcentagem), <span class="dv">1</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">variancia =</span> <span class="fu">round</span>(<span class="fu">var</span>(volume_porcentagem), <span class="dv">1</span>), </span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">desvio_padrao =</span> <span class="fu">round</span>(<span class="fu">sd</span>(volume_porcentagem), <span class="dv">1</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  DT<span class="sc">::</span><span class="fu">datatable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+
+<div id="htmlwidget-fe1571e4eb3dc68c367b" style="width:100%;height:auto;" class="datatables html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fe1571e4eb3dc68c367b">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60","61","62","63","64","65","66","67","68","69","70","71","72","73","74","75","76","77","78","79","80","81","82","83","84","85","86","87","88","89","90","91","92","93","94","95","96","97","98","99","100","101","102","103","104","105","106","107","108","109","110","111","112","113","114","115","116","117","118","119","120","121","122","123","124","125","126","127","128","129","130","131","132","133","134","135","136","137","138","139","140","141","142","143"],[2000,2000,2000,2000,2000,2000,2001,2001,2001,2001,2001,2001,2002,2002,2002,2002,2002,2002,2003,2003,2003,2003,2003,2003,2004,2004,2004,2004,2004,2004,2005,2005,2005,2005,2005,2005,2006,2006,2006,2006,2006,2006,2007,2007,2007,2007,2007,2007,2008,2008,2008,2008,2008,2008,2009,2009,2009,2009,2009,2009,2010,2010,2010,2010,2010,2010,2011,2011,2011,2011,2011,2011,2012,2012,2012,2012,2012,2012,2013,2013,2013,2013,2013,2013,2014,2014,2014,2014,2014,2014,2015,2015,2015,2015,2015,2015,2016,2016,2016,2016,2016,2016,2017,2017,2017,2017,2017,2017,2018,2018,2018,2018,2018,2018,2018,2019,2019,2019,2019,2019,2019,2019,2020,2020,2020,2020,2020,2020,2020,2021,2021,2021,2021,2021,2021,2021,2022,2022,2022,2022,2022,2022,2022],["Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro","Cantareira","Alto Tietê","Guarapiranga","Rio Grande","São Lourenço","Cotia","Rio Claro"],[23.5,47.6,19.2,68,14.6,56,14.1,17.6,24.5,72.1,16.7,9.3,24.7,23.6,24.3,69.6,36.9,21,1.6,16.4,18.6,56.1,5.3,25.1,3.4,16.9,21.3,64.8,11.3,53.6,30.7,26.6,48.3,85.7,41.2,87.4,34.5,41.6,51.8,78.9,87.1,61.7,27.8,42.1,32.3,65.7,47.3,23.3,32.1,38.7,39.9,74.7,58.1,30.5,51.1,42.6,47,76.9,76.1,38.5,71.9,58.3,63.9,86.5,61.3,95.6,66.5,49.7,50.6,75.6,47.5,63.7,47.4,32.6,44.3,70.6,47.9,39.8,27.3,41.5,59.2,84,74.7,49.9,-22.6,4.2,31.4,61.8,27.8,25.8,-24.3,10,38.1,68.6,27.9,22,0.7,23.7,71.6,75.8,85.9,62.3,41,43.1,54.4,77.3,75.7,68.4,33.5,45.9,48.5,74.1,14.5,38.4,34.8,37.7,50,59.1,79.8,46.1,41.9,80.4,31.3,52.9,44.3,71,58.8,57.5,43.9,24.3,36.3,44.7,64.1,49.6,35.9,35.6,25,40.4,59.5,85.4,79,41.3,41.1],[68.8,87.1,64.2,100.8,41.8,106.5,41.5,57.5,61.8,98.5,45.4,90.2,62.9,56.9,64.5,99.2,87.5,80.7,50.6,53.8,62.2,102.2,59.8,94.6,37.7,40.9,50.3,96.1,45.7,103.6,57.7,52,82.1,101,102.5,105.6,68,68.4,90.7,102.6,106.5,106.5,51.1,69.5,80.2,101,102.7,98,64.3,61.8,77.7,99.5,98.9,83.4,96.7,69.8,96.6,103.8,106,108,100.5,101.3,95.7,107.8,110.5,107.8,96.4,84.7,93.2,103.8,104.6,107.1,76.7,63.7,90.6,100.2,103.9,103.8,63.9,67.5,92.1,101.9,104.4,106.2,27.2,46.4,79.1,98.6,74.3,106,0.3,23.6,92.1,99.7,86.1,74.1,47.7,47.9,95.5,97.3,105.5,103.1,68,59.7,86.7,96.6,104.4,106,54.3,65.2,91.2,90,79.9,92.7,102.9,58.7,98.1,96.1,108.5,101.7,103.4,107.2,64.4,91.6,89.5,103.6,102.1,104.6,104.1,52.8,62.1,75.3,91.9,80.8,81.6,75.4,45.4,64.1,92.9,105.2,100.4,95.3,56.1],[48.3,66.8,38.2,81.2,26.6,87.6,27.8,36.6,43,85.5,26.5,43.2,45.7,42.7,45.1,86.7,65.6,58,28.5,36.3,41,76.7,34.6,61,21.7,30.8,38.9,83.9,34.3,91.3,47.3,41,73.3,91.5,88.3,100.3,52.6,58.2,71.7,89.4,97,88.6,41.7,58.2,59.1,83.5,81.6,63.9,52.6,50.9,61.8,85.3,84.6,53.4,80.5,52.1,84,91.3,100.5,89.5,90.6,79.2,81.1,94.4,93,101.5,83.4,69.8,71.3,90.3,85.2,93.5,67.5,50.1,72.4,88.2,85.3,84.9,49.8,57.7,79.4,94.4,93.3,95.6,1,25.2,61,84.4,45.6,79,-12.6,17.8,74,89,58.8,53.3,37.3,39.8,81.2,84.8,96.3,85.4,57.8,53.4,72.1,87,94.5,93,43.3,55,68,81.4,43.1,66.4,76.3,49.2,83.9,82,94.4,78.1,85.9,100.5,49.5,71.9,62.5,81.5,80.3,81.5,74.5,40.1,50.6,60.1,80.1,65.5,63.6,48.5,40.4,57.6,82.1,100,91.2,80.8,46.6],[215.7,137.9,178.1,92.9,63.5,181.7,83.9,205.2,117.3,68.4,26,672.4,161.8,90.3,134.9,79.9,247.5,282.1,296.4,154.4,203.4,199.3,382.8,410.6,81.2,51.5,71.1,57,82.2,152.4,55.9,23.2,39.4,8.4,169.7,13,120.9,47,85.9,27.5,24.3,229.8,54.5,84.2,210.2,87.1,318.8,572.5,82.4,46.7,121.2,61.4,93.1,253.3,95.3,28,122.7,27,17.6,270.7,88.9,174.3,81.5,18,204.4,3.5,90,140,189,48.9,358.8,132.8,85.4,80.4,151.1,60.5,205.3,455.3,113.3,43.3,70.2,10.1,64.1,110.6,217.6,174.7,217.1,117.1,145.7,646.7,26.5,15.4,175.5,60.6,196.5,186.7,141.9,31.7,41,42.4,24.5,146.1,78.3,17.6,97.8,25.8,71.1,140.7,48.9,33.2,133,14.5,387.4,412.3,430.4,49.1,184.9,115.5,75.1,399.8,362.1,27.6,110.8,159.8,197.2,57.9,214.8,244.6,414.3,85,76.4,88.1,53.7,56.3,210.5,59.1,31.6,34.1,51.1,11.9,25.6,169.6,9.9],[14.7,11.7,13.3,9.6,8,13.5,9.2,14.3,10.8,8.3,5.1,25.9,12.7,9.5,11.6,8.9,15.7,16.8,17.2,12.4,14.3,14.1,19.6,20.3,9,7.2,8.4,7.5,9.1,12.3,7.5,4.8,6.3,2.9,13,3.6,11,6.9,9.3,5.2,4.9,15.2,7.4,9.2,14.5,9.3,17.9,23.9,9.1,6.8,11,7.8,9.7,15.9,9.8,5.3,11.1,5.2,4.2,16.5,9.4,13.2,9,4.2,14.3,1.9,9.5,11.8,13.7,7,18.9,11.5,9.2,9,12.3,7.8,14.3,21.3,10.6,6.6,8.4,3.2,8,10.5,14.8,13.2,14.7,10.8,12.1,25.4,5.2,3.9,13.2,7.8,14,13.7,11.9,5.6,6.4,6.5,5,12.1,8.8,4.2,9.9,5.1,8.4,11.9,7,5.8,11.5,3.8,19.7,20.3,20.7,7,13.6,10.7,8.7,20,19,5.2,10.5,12.6,14,7.6,14.7,15.6,20.4,9.2,8.7,9.4,7.3,7.5,14.5,7.7,5.6,5.8,7.1,3.5,5.1,13,3.1]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>ano<\/th>\n      <th>sistema<\/th>\n      <th>min<\/th>\n      <th>max<\/th>\n      <th>media<\/th>\n      <th>variancia<\/th>\n      <th>desvio_padrao<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,3,4,5,6,7]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</section>
+<section id="regressão-linear" class="level2">
+<h2 class="anchored" data-anchor-id="regressão-linear">Regressão linear</h2>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>modelo_linear <span class="ot">&lt;-</span> <span class="fu">lm</span>(volume_variacao <span class="sc">~</span> pluviometria_dia, <span class="at">data =</span> mananciais)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>modelo_linear</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+lm(formula = volume_variacao ~ pluviometria_dia, data = mananciais)
+
+Coefficients:
+     (Intercept)  pluviometria_dia  
+        -0.13882           0.03504  </code></pre>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(modelo_linear) <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<thead>
+<tr class="header">
+<th style="text-align: left;">term</th>
+<th style="text-align: right;">estimate</th>
+<th style="text-align: right;">std.error</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">(Intercept)</td>
+<td style="text-align: right;">-0.1388152</td>
+<td style="text-align: right;">0.0022738</td>
+<td style="text-align: right;">-61.0503</td>
+<td style="text-align: right;">0</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">pluviometria_dia</td>
+<td style="text-align: right;">0.0350403</td>
+<td style="text-align: right;">0.0002133</td>
+<td style="text-align: right;">164.2881</td>
+<td style="text-align: right;">0</td>
+</tr>
+</tbody>
+</table>
+</div>
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glance</span>(modelo_linear)  <span class="sc">|&gt;</span> <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 12%">
+<col style="width: 8%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 2%">
+<col style="width: 9%">
+<col style="width: 7%">
+<col style="width: 8%">
+<col style="width: 8%">
+<col style="width: 11%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: right;">r.squared</th>
+<th style="text-align: right;">adj.r.squared</th>
+<th style="text-align: right;">sigma</th>
+<th style="text-align: right;">statistic</th>
+<th style="text-align: right;">p.value</th>
+<th style="text-align: right;">df</th>
+<th style="text-align: right;">logLik</th>
+<th style="text-align: right;">AIC</th>
+<th style="text-align: right;">BIC</th>
+<th style="text-align: right;">deviance</th>
+<th style="text-align: right;">df.residual</th>
+<th style="text-align: right;">nobs</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">0.3463769</td>
+<td style="text-align: right;">0.3463641</td>
+<td style="text-align: right;">0.474638</td>
+<td style="text-align: right;">26990.58</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">-34315.05</td>
+<td style="text-align: right;">68636.1</td>
+<td style="text-align: right;">68662.61</td>
+<td style="text-align: right;">11474.02</td>
+<td style="text-align: right;">50932</td>
+<td style="text-align: right;">50934</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Fazendo um modelo linear para cada sistema:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sistema) <span class="sc">|&gt;</span></span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">modelo =</span> <span class="fu">lm</span>(volume_variacao <span class="sc">~</span> pluviometria_dia, <span class="at">data =</span> <span class="fu">cur_data</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">tidy</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">select</span>(term, estimate) <span class="sc">|&gt;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> term, <span class="at">values_from =</span> estimate),</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">r2 =</span> <span class="fu">lm</span>(volume_variacao <span class="sc">~</span> pluviometria_dia, <span class="at">data =</span> <span class="fu">cur_data</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>(adj.r.squared) <span class="sc">|&gt;</span></span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>      <span class="fu">round</span>(<span class="dv">2</span>)</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(modelo)) <span class="sc">|&gt;</span></span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">clean_names</span>() <span class="sc">|&gt;</span></span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="at">modelo =</span> <span class="fu">str_glue</span>(</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>      <span class="st">"volume_variacao = {round(intercept,3)} + {round(pluviometria_dia,3)} * pluviometria_dia"</span></span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sistema, modelo, r2) <span class="sc">|&gt;</span></span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(r2)) <span class="sc">|&gt;</span></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<table class="table table-sm table-striped">
+<colgroup>
+<col style="width: 18%">
+<col style="width: 74%">
+<col style="width: 7%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">sistema</th>
+<th style="text-align: left;">modelo</th>
+<th style="text-align: right;">r2</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Rio Claro</td>
+<td style="text-align: left;">volume_variacao = -0.279 + 0.048 * pluviometria_dia</td>
+<td style="text-align: right;">0.51</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cotia</td>
+<td style="text-align: left;">volume_variacao = -0.125 + 0.04 * pluviometria_dia</td>
+<td style="text-align: right;">0.41</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Rio Grande</td>
+<td style="text-align: left;">volume_variacao = -0.142 + 0.035 * pluviometria_dia</td>
+<td style="text-align: right;">0.38</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Guarapiranga</td>
+<td style="text-align: left;">volume_variacao = -0.105 + 0.031 * pluviometria_dia</td>
+<td style="text-align: right;">0.29</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Alto Tietê</td>
+<td style="text-align: left;">volume_variacao = -0.074 + 0.02 * pluviometria_dia</td>
+<td style="text-align: right;">0.28</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Cantareira</td>
+<td style="text-align: left;">volume_variacao = -0.07 + 0.018 * pluviometria_dia</td>
+<td style="text-align: right;">0.21</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">São Lourenço</td>
+<td style="text-align: left;">volume_variacao = -0.102 + 0.035 * pluviometria_dia</td>
+<td style="text-align: right;">0.12</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<ul>
+<li>Gráfico com o modelo:</li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>mananciais_r2 <span class="ot">&lt;-</span> mananciais <span class="sc">|&gt;</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sistema) <span class="sc">|&gt;</span></span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">r2 =</span> <span class="fu">lm</span>(volume_variacao <span class="sc">~</span> pluviometria_dia, <span class="at">data =</span> <span class="fu">cur_data</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>      <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>(adj.r.squared) <span class="sc">|&gt;</span></span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>      <span class="fu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_pluviometria_dia =</span> <span class="fu">max</span>(pluviometria_dia),</span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_volume_variacao =</span> <span class="fu">max</span>(volume_variacao),</span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>mananciais <span class="sc">|&gt;</span></span>
+<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> volume_variacao, <span class="at">x =</span> pluviometria_dia)) <span class="sc">+</span></span>
+<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>()) <span class="sc">+</span></span>
+<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(sistema)) <span class="sc">+</span></span>
+<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
+<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">max</span>(max_pluviometria_dia)<span class="sc">*</span><span class="fl">0.80</span>,</span>
+<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">max</span>(max_volume_variacao)<span class="sc">*</span><span class="fl">0.9</span>,</span>
+<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"R2 = "</span>, r2)</span>
+<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">data =</span> mananciais_r2) <span class="sc">+</span></span>
+<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pluviometria do dia"</span>, <span class="at">y =</span> <span class="st">"Variação do volume diário"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="exercício-3" class="level2">
+<h2 class="anchored" data-anchor-id="exercício-3">Exercício 3</h2>
+<ul>
+<li><p>A base original apresenta dados a partir do ano 2000. Altere o código abaixo para filtrar os anos pós crise hídrica (a partir de 2016).</p></li>
+<li><p>Repare no R2 gerado para o Sistema Cantareira neste gráfico (pós crise) e no gráfico anterior: o que você acha que causa essa diferença no R2?</p></li>
+</ul>
+<div class="cell" data-layout-align="center">
+<details>
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>manancias_filtrado <span class="ot">&lt;-</span> mananciais <span class="sc">|&gt;</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ano <span class="sc">&gt;=</span> <span class="dv">2000</span>)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>mananciais_r2_filtrado <span class="ot">&lt;-</span> manancias_filtrado <span class="sc">|&gt;</span></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(sistema) <span class="sc">|&gt;</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">r2 =</span> <span class="fu">lm</span>(volume_variacao <span class="sc">~</span> pluviometria_dia, <span class="at">data =</span> <span class="fu">cur_data</span>()) <span class="sc">|&gt;</span></span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>      <span class="fu">glance</span>() <span class="sc">|&gt;</span></span>
+<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>      <span class="fu">pull</span>(adj.r.squared) <span class="sc">|&gt;</span></span>
+<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">round</span>(<span class="dv">2</span>),</span>
+<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_pluviometria_dia =</span> <span class="fu">max</span>(pluviometria_dia),</span>
+<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">max_volume_variacao =</span> <span class="fu">max</span>(volume_variacao),</span>
+<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  )</span>
+<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>manancias_filtrado <span class="sc">|&gt;</span> </span>
+<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">y =</span> volume_variacao, <span class="at">x =</span> pluviometria_dia)) <span class="sc">+</span></span>
+<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>()) <span class="sc">+</span></span>
+<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>) <span class="sc">+</span></span>
+<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="fu">vars</span>(sistema)) <span class="sc">+</span></span>
+<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_text</span>(<span class="fu">aes</span>(</span>
+<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="fu">max</span>(max_pluviometria_dia)<span class="sc">*</span><span class="fl">0.80</span>,</span>
+<span id="cb23-23"><a href="#cb23-23" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="fu">max</span>(max_volume_variacao)<span class="sc">*</span><span class="fl">0.9</span>,</span>
+<span id="cb23-24"><a href="#cb23-24" aria-hidden="true" tabindex="-1"></a>    <span class="at">label =</span> <span class="fu">paste0</span>(<span class="st">"R2 = "</span>, r2)</span>
+<span id="cb23-25"><a href="#cb23-25" aria-hidden="true" tabindex="-1"></a>  ), <span class="at">data =</span> mananciais_r2_filtrado) <span class="sc">+</span></span>
+<span id="cb23-26"><a href="#cb23-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
+<span id="cb23-27"><a href="#cb23-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="st">"Pluviometria do dia"</span>, <span class="at">y =</span> <span class="st">"Variação do volume diário"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="index_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" style="width:95.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="para-saber-mais" class="level2">
+<h2 class="anchored" data-anchor-id="para-saber-mais">Para saber mais:</h2>
+<ul>
+<li><p><a href="https://analises-ecologicas.netlify.app/" class="uri">https://analises-ecologicas.netlify.app/</a></p></li>
+<li><p><a href="https://livro.curso-r.com/" class="uri">https://livro.curso-r.com/</a></p></li>
+<li><p><a href="https://abjur.github.io/livro/" class="uri">https://abjur.github.io/livro/</a> - Livro em construção sobre Jurimetria</p></li>
+</ul>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
