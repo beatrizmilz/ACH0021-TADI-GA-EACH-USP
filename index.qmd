@@ -4,6 +4,7 @@ format: html
 code-fold: true
 code-copy: true
 editor: visual
+toc: true
 ---
 
 ```{r setup, include=FALSE}
@@ -340,7 +341,7 @@ manancias_filtrado |>
 
 
 
-## Para saber mais:
+## Para saber mais
 
 - <https://analises-ecologicas.netlify.app/>
 
