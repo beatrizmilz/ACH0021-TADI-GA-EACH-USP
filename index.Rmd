@@ -1,0 +1,336 @@
+---
+title: "TADI - Aula prática com programação em R"
+output: 
+  html_document:
+    code_folding: show
+    theme:
+      bootswatch: "cosmo"
+      base_font:
+        google: "Roboto"
+      heading_font:
+        google: "Montserrat"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(out.width = "95%",
+                      fig.align = "center",
+                      warning = FALSE,
+                      message = FALSE,
+                      dpi = 600,
+                      cache = TRUE)
+```
+
+## Objetivo
+
+-   Explorar os dados sobre os mananciais utilizados para abastecimento público na Região Metropolitana de São Paulo.
+
+-   Perguntas:
+
+    -   Qual é o sistema mais importante para o abastecimento público atualmente?
+
+    -   Atualmente, qual é o sistema com volume armazenado mais baixo?
+        e mais alto?
+
+    -   Considerando os gráficos gerados, você diria que o Cantareira se recuperou da crise hídrica de 2014-2015?
+
+Fonte dos dados:
+
+-   <https://beatrizmilz.github.io/mananciais/>\
+-   <https://mananciais.sabesp.com.br/Situacao>
+
+## Carregar pacotes
+
+```{r echo=TRUE, message=FALSE}
+library(tidyverse)
+library(knitr)
+library(lubridate)
+library(janitor)
+library(broom)
+library(gghighlight)
+library(skimr)
+library(DT)
+```
+
+## Carregar a base de dados
+
+```{r}
+#| message: false
+# ler o arquivo
+mananciais <-
+  read_delim(
+    "https://github.com/beatrizmilz/mananciais/raw/master/inst/extdata/mananciais.csv",
+    delim = ";",
+    escape_double = FALSE,
+    col_types = cols(data = col_date(format = "%Y-%m-%d")),
+    locale = locale(decimal_mark = ",", grouping_mark = "."),
+    trim_ws = TRUE
+  )
+```
+
+## Conhecendo a base de dados
+
+Quais colunas estão disponíveis?
+
+```{r}
+glimpse(mananciais)
+```
+
+### Sumário da base de dados
+
+```{r}
+skim(mananciais)
+```
+
+## Alterando a base de dados
+
+Criar a coluna ano, mes_ano, e ordenar a coluna de sistema:
+
+```{r}
+mananciais <- mananciais |>
+  mutate(
+    ano = year(data),
+    mes_ano = floor_date(data, "month"),
+    sistema = fct_relevel(
+      sistema,
+      levels = c(
+        "Cantareira",
+        "Alto Tietê",
+        "Guarapiranga",
+        "Rio Grande"  ,
+        "São Lourenço" ,
+        "Cotia" ,
+        "Rio Claro"
+      )
+    )
+  )
+    
+```
+
+## Explorando os dados:
+
+Quais são os sistemas existentes na base?
+Quantas observações temos para cada Sistema?
+
+```{r}
+mananciais |> 
+  count(sistema) |> 
+  kable()
+```
+
+-   Porque o São Lourenço apresenta menos dados?
+
+```{r}
+mananciais |> 
+  group_by(sistema) |> 
+  filter(data == min(data)) |> 
+  select(sistema, data) |> 
+  kable()
+```
+
+Quais são os sistemas com o maior volume operacional armazenado?
+
+```{r}
+mananciais |> 
+  filter(data == max(data)) |> 
+  arrange(desc(volume_operacional)) |> 
+  select(sistema, volume_operacional) |> 
+  kable()
+```
+
+## Gráficos!
+
+## Gráficos de linhas
+
+-   Como o volume do sistema Cantareira variou ao longo do tempo?
+
+```{r}
+mananciais |> 
+  filter(sistema == "Cantareira") |> 
+  ggplot() +
+  geom_line(aes(x = data, y = volume_porcentagem)) +
+  theme_minimal() +
+  labs(x = "Ano", y = "Volume (%)")
+```
+
+-   Oficialmente, a crise hídrica aconteceu nos anos de 2014 e 2015:
+
+```{r}
+mananciais |>
+  filter(sistema == "Cantareira") |>
+  ggplot() +
+  geom_line(aes(x = data, y = volume_porcentagem)) +
+  theme_minimal() +
+  labs(x = "Ano", y = "Volume (%)") +
+  gghighlight(ano %in% c(2014:2015))
+  # gghighlight(mes_ano >= "2013-04-01", mes_ano < "2016-01-01")
+```
+
+## Exercício 1
+
+Adapte o código abaixo para criar um gráfico para o sistema Alto Tietê:
+
+```{r}
+mananciais |> 
+  filter(sistema == "Cantareira") |> 
+  ggplot() +
+  geom_line(aes(x = data, y = volume_porcentagem)) +
+  theme_minimal() +
+  labs(x = "Ano", y = "Volume (%)")
+```
+
+## Criando uma tabela de resumo!
+
+-   Porcentagem do volume do reservatório: calculando os valores mínimo, máximo, média, variância, desvio padrão.
+
+```{r}
+mananciais |> 
+  summarise(min = min(volume_porcentagem),
+            max = max(volume_porcentagem),
+            media = round(mean(volume_porcentagem), 1),
+            variancia = round(var(volume_porcentagem), 1), 
+            desvio_padrao = round(sd(volume_porcentagem), 1)) |> 
+  kable()
+```
+
+-   E para todas as combinações de Sistema e Ano?
+
+```{r message = FALSE}
+mananciais |> 
+  group_by(ano, sistema) |> 
+  summarise(min = min(volume_porcentagem),
+            max = max(volume_porcentagem),
+            media = round(mean(volume_porcentagem), 1),
+            variancia = round(var(volume_porcentagem), 1), 
+            desvio_padrao = round(sd(volume_porcentagem), 1)) |> 
+  datatable()
+```
+
+## Exercício 2
+
+Adapte o código a seguir para criar uma tabela de resumo para a variável de Volume Operacional:
+
+```{r message = FALSE}
+mananciais |> 
+  group_by(ano, sistema) |> 
+  summarise(min = min(volume_porcentagem),
+            max = max(volume_porcentagem),
+            media = round(mean(volume_porcentagem), 1),
+            variancia = round(var(volume_porcentagem), 1), 
+            desvio_padrao = round(sd(volume_porcentagem), 1)) |> 
+  datatable()
+```
+
+## Regressão linear
+
+```{r}
+modelo_linear <- lm(volume_variacao ~ pluviometria_dia, data = mananciais)
+
+modelo_linear
+
+tidy(modelo_linear) |> kable()
+
+glance(modelo_linear)  |> kable()
+```
+
+-   Fazendo um modelo linear para cada sistema:
+
+```{r}
+mananciais |>
+  group_by(sistema) |>
+  summarise(
+    modelo = lm(volume_variacao ~ pluviometria_dia, data = cur_data()) |>
+      tidy() |>
+      select(term, estimate) |>
+      pivot_wider(names_from = term, values_from = estimate),
+    r2 = lm(volume_variacao ~ pluviometria_dia, data = cur_data()) |>
+      glance() |>
+      pull(adj.r.squared) |>
+      round(2)
+  ) |>
+  unnest(cols = c(modelo)) |>
+  clean_names() |>
+  mutate(
+    modelo = str_glue(
+      "volume_variacao = {round(intercept,3)} + {round(pluviometria_dia,3)} * pluviometria_dia"
+    )
+  ) |>
+  select(sistema, modelo, r2) |>
+  arrange(desc(r2)) |>
+  kable()
+```
+
+-   Gráfico com o modelo:
+
+```{r}
+mananciais_r2 <- mananciais |>
+  group_by(sistema) |>
+  summarise(
+    r2 = lm(volume_variacao ~ pluviometria_dia, data = cur_data()) |>
+      glance() |>
+      pull(adj.r.squared) |>
+      round(2),
+    max_pluviometria_dia = max(pluviometria_dia),
+    max_volume_variacao = max(volume_variacao),
+  )
+
+
+mananciais |>
+  ggplot(aes(y = volume_variacao, x = pluviometria_dia)) +
+  geom_point(aes()) +
+  geom_smooth(method = "lm") +
+  facet_wrap(vars(sistema)) +
+  geom_text(aes(
+    x = max(max_pluviometria_dia)*0.80,
+    y = max(max_volume_variacao)*0.9,
+    label = paste0("R2 = ", r2)
+  ), data = mananciais_r2) +
+  theme_minimal() +
+  labs(x = "Pluviometria do dia", y = "Variação do volume diário")
+
+```
+
+## Exercício 3
+
+-   A base original apresenta dados a partir do ano 2000.
+    Altere o código abaixo para filtrar os anos pós crise hídrica (a partir de 2016).
+
+-   Repare no R2 gerado para o Sistema Cantareira neste gráfico (pós crise) e no gráfico anterior: o que você acha que causa essa diferença no R2?
+
+```{r}
+manancias_filtrado <- mananciais |>
+  filter(ano >= 2000)
+
+mananciais_r2_filtrado <- manancias_filtrado |>
+  group_by(sistema) |>
+  summarise(
+    r2 = lm(volume_variacao ~ pluviometria_dia, data = cur_data()) |>
+      glance() |>
+      pull(adj.r.squared) |>
+      round(2),
+    max_pluviometria_dia = max(pluviometria_dia),
+    max_volume_variacao = max(volume_variacao),
+  )
+
+
+manancias_filtrado |> 
+  ggplot(aes(y = volume_variacao, x = pluviometria_dia)) +
+  geom_point(aes()) +
+  geom_smooth(method = "lm") +
+  facet_wrap(vars(sistema)) +
+  geom_text(aes(
+    x = max(max_pluviometria_dia)*0.80,
+    y = max(max_volume_variacao)*0.9,
+    label = paste0("R2 = ", r2)
+  ), data = mananciais_r2_filtrado) +
+  theme_minimal() +
+  labs(x = "Pluviometria do dia", y = "Variação do volume diário")
+
+```
+
+## Para saber mais
+
+-   <https://analises-ecologicas.netlify.app/>
+
+-   <https://livro.curso-r.com/>
+
+-   <https://abjur.github.io/livro/> - Livro em construção sobre Jurimetria
