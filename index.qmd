@@ -17,26 +17,23 @@ knitr::opts_chunk$set(out.width = "95%",
 
 ## Objetivo
 
-- Explorar os dados sobre os mananciais utilizados para abastecimento público na Região Metropolitana de São Paulo.
+-   Explorar os dados sobre os mananciais utilizados para abastecimento público na Região Metropolitana de São Paulo.
 
-- Perguntas:
+-   Perguntas:
 
-  - Qual é o sistema mais importante para o abastecimento público atualmente?
-  
-  - Atualmente, qual é o sistema com volume armazenado mais baixo? e mais alto? 
+    -   Qual é o sistema mais importante para o abastecimento público atualmente?
 
-  - Considerando os gráficos gerados, você diria que o Cantareira se recuperou da crise hídrica de 2014-2015?
-  
-  - A pluviometria nos últimos meses tem sido maior ou menor do que a média histórica?
-  
+    -   Atualmente, qual é o sistema com volume armazenado mais baixo?
+        e mais alto?
+
+    -   Considerando os gráficos gerados, você diria que o Cantareira se recuperou da crise hídrica de 2014-2015?
+
 Fonte dos dados:
 
-  - <https://beatrizmilz.github.io/mananciais/>  
-  - <https://mananciais.sabesp.com.br/Situacao>
+-   <https://beatrizmilz.github.io/mananciais/>\
+-   <https://mananciais.sabesp.com.br/Situacao>
 
-
-
-## Carregar pacotes 
+## Carregar pacotes
 
 ```{r echo=TRUE, message=FALSE}
 library(tidyverse)
@@ -45,7 +42,6 @@ library(lubridate)
 library(janitor)
 library(broom)
 ```
-
 
 ## Carregar a base de dados
 
@@ -62,7 +58,6 @@ mananciais <-
     trim_ws = TRUE
   )
 ```
-
 
 ## Conhecendo a base de dados
 
@@ -103,11 +98,10 @@ mananciais <- mananciais |>
     
 ```
 
-
-
 ## Explorando os dados:
 
-Quais são os sistemas existentes na base? Quantas observações temos para cada Sistema?
+Quais são os sistemas existentes na base?
+Quantas observações temos para cada Sistema?
 
 ```{r}
 mananciais |> 
@@ -115,7 +109,7 @@ mananciais |>
   kable()
 ```
 
-- Porque o São Lourenço apresenta menos dados? 
+-   Porque o São Lourenço apresenta menos dados?
 
 ```{r}
 mananciais |> 
@@ -124,7 +118,6 @@ mananciais |>
   select(sistema, data) |> 
   kable()
 ```
-
 
 Quais são os sistemas com o maior volume operacional armazenado?
 
@@ -136,12 +129,11 @@ mananciais |>
   kable()
 ```
 
-
 ## Gráficos!
 
 ## Gráficos de linhas
 
-- Como o volume do sistema Cantareira variou ao longo do tempo?
+-   Como o volume do sistema Cantareira variou ao longo do tempo?
 
 ```{r}
 mananciais |> 
@@ -152,7 +144,7 @@ mananciais |>
   labs(x = "Ano", y = "Volume (%)")
 ```
 
-- Oficialmente, a crise hídrica aconteceu nos anos de 2014 e 2015:
+-   Oficialmente, a crise hídrica aconteceu nos anos de 2014 e 2015:
 
 ```{r}
 mananciais |>
@@ -165,10 +157,9 @@ mananciais |>
   # gghighlight::gghighlight(mes_ano >= "2013-04-01", mes_ano < "2016-01-01")
 ```
 
-
 ## Exercício 1
 
-Adapte o código abaixo para criar um gráfico para o sistema  Alto Tietê:
+Adapte o código abaixo para criar um gráfico para o sistema Alto Tietê:
 
 ```{r}
 mananciais |> 
@@ -179,12 +170,9 @@ mananciais |>
   labs(x = "Ano", y = "Volume (%)")
 ```
 
-
-
-
 ## Criando uma tabela de resumo!
 
-- Porcentagem do volume do reservatório: calculando os valores mínimo, máximo, média, variância, desvio padrão.
+-   Porcentagem do volume do reservatório: calculando os valores mínimo, máximo, média, variância, desvio padrão.
 
 ```{r}
 mananciais |> 
@@ -196,7 +184,7 @@ mananciais |>
   kable()
 ```
 
-- E para todas as combinações de Sistema e Ano?
+-   E para todas as combinações de Sistema e Ano?
 
 ```{r message = FALSE}
 mananciais |> 
@@ -209,14 +197,9 @@ mananciais |>
   DT::datatable()
 ```
 
-
-
-
-
 ## Exercício 2
 
 Adapte o código a seguir para criar uma tabela de resumo para a variável de Volume Operacional:
-
 
 ```{r message = FALSE}
 mananciais |> 
@@ -241,8 +224,7 @@ tidy(modelo_linear) |> kable()
 glance(modelo_linear)  |> kable()
 ```
 
-
-- Fazendo um modelo linear para cada sistema:
+-   Fazendo um modelo linear para cada sistema:
 
 ```{r}
 mananciais |>
@@ -269,8 +251,7 @@ mananciais |>
   kable()
 ```
 
-
-- Gráfico com o modelo:
+-   Gráfico com o modelo:
 
 ```{r}
 mananciais_r2 <- mananciais |>
@@ -302,9 +283,10 @@ mananciais |>
 
 ## Exercício 3
 
-- A base original apresenta dados a partir do ano 2000. Altere o código abaixo para filtrar os anos pós crise hídrica (a partir de 2016).
+-   A base original apresenta dados a partir do ano 2000.
+    Altere o código abaixo para filtrar os anos pós crise hídrica (a partir de 2016).
 
-- Repare no R2 gerado para o Sistema Cantareira neste gráfico (pós crise) e no gráfico anterior:  o que você acha que causa essa diferença no R2?
+-   Repare no R2 gerado para o Sistema Cantareira neste gráfico (pós crise) e no gráfico anterior: o que você acha que causa essa diferença no R2?
 
 ```{r}
 manancias_filtrado <- mananciais |>
@@ -337,16 +319,10 @@ manancias_filtrado |>
 
 ```
 
-
-
-
-
 ## Para saber mais
 
-- <https://analises-ecologicas.netlify.app/>
+-   <https://analises-ecologicas.netlify.app/>
 
-- <https://livro.curso-r.com/>
+-   <https://livro.curso-r.com/>
 
-- <https://abjur.github.io/livro/> - Livro em construção sobre Jurimetria
-
-
+-   <https://abjur.github.io/livro/> - Livro em construção sobre Jurimetria
